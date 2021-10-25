@@ -6,6 +6,34 @@
       "name": "Kenzinho",
       "age": 38,
       "id": 1
+    },
+    {
+      "email": "hericfelix@teste.com",
+      "password": "$2a$10$58oE0Iv4zi69m8ytQOsxGeC4wRcGMSyWqD6TamC.i1ZrelDw./A3O",
+      "age": 25,
+      "id": 2
+    },
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$aM7IsLn.CWMEe//BfdKouOf3.tZ.p/goVTTXBWlvNY5esGmY7z6zW",
+      "firstname": "Olivier",
+      "lastname": "Monge",
+      "age": 32,
+      "id": 3
+    }
+  ],
+  "animals": [
+    {
+      "type": "cat",
+      "name": "gengibirra",
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "type": "cat",
+      "name": "laranjinha",
+      "userId": 2,
+      "id": 2
     }
   ]
 }
