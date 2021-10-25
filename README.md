@@ -1,24 +1,123 @@
-# json-server-base
+# BookListAPI
 
-Esse é o repositório com a base de JSON-Server + JSON-Server-Auth já configurada, feita para ser usada no desenvolvimento das API's nos Capstones do Q2.
+==========================
+
+API que possui uma listagem dos 100 melhores livros clássicos de todos os tempos, e que o usuário pode listar seus livros já lidos.
 
 ## Endpoints
 
-Assim como a documentação do JSON-Server-Auth traz (https://www.npmjs.com/package/json-server-auth), existem 3 endpoints que podem ser utilizados para cadastro e 2 endpoints que podem ser usados para login.
+==========================
+
+A aplicação possui um total de 4 endpoints:
 
 ### Cadastro
 
-POST /register <br/>
-POST /signup <br/>
-POST /users
+==========================
 
-Qualquer um desses 3 endpoints irá cadastrar o usuário na lista de "Users", sendo que os campos obrigatórios são os de email e password.
-Você pode ficar a vontade para adicionar qualquer outra propriedade no corpo do cadastro dos usuários.
+`POST /register`
 
+Endpoint de cadastro de novos usuários. A requisição deverá ser feita com o e-mail e o login no corpo.
+
+```json
+{
+  "email": "teste@teste.com",
+  "password": "teste123"
+}
+```
+
+Caso tudo dê certo a resposta será assim:
+
+`POST /register - STATUS 201`
+
+```json
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9saXZpZXJAbWFpbC5jb20iLCJpYXQiOjE2MzUxODUwMjgsImV4cCI6MTYzNTE4ODYyOCwic3ViIjoiMyJ9.OOGgjbYHjAQ1AliVW39IY9_s4HpdxOlt4hEojm_fXYA",
+  "user": {
+    "email": "teste@teste.com",
+    "id": 3
+  }
+}
+```
 
 ### Login
 
-POST /login <br/>
-POST /signin
+==========================
 
-Qualquer um desses 2 endpoints pode ser usado para realizar login com um dos usuários cadastrados na lista de "Users"
+`POST /login`
+
+Endpoint de login de usuários já criados. A requisição deverá ser feita com o e-mail e o login no corpo.
+
+```json
+{
+  "email": "teste@teste.com",
+  "password": "teste123"
+}
+```
+
+Caso tudo dê certo a resposta será assim:
+
+`POST /login - STATUS 201`
+
+```json
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9saXZpZXJAbWFpbC5jb20iLCJpYXQiOjE2MzUxODUwMjgsImV4cCI6MTYzNTE4ODYyOCwic3ViIjoiMyJ9.OOGgjbYHjAQ1AliVW39IY9_s4HpdxOlt4hEojm_fXYA",
+  "user": {
+    "email": "teste@teste.com",
+    "id": 3
+  }
+}
+```
+
+### Book List
+
+==========================
+
+`GET /book_list`
+
+Endpoint utilizada para acessar a listagem dos 100 melhores livros clássicos.
+
+`GET /book_list - STATUS 200`
+
+```json
+{
+  "email": "teste@teste.com",
+  "password": "teste123"
+}
+```
+
+### Read Books
+
+==========================
+
+`POST /read_books`
+
+Conseguimos realizar o cadastro de livros já lidos pelo usuário com esse endpoint. É necessário o envio do id do usuário para que a requisição seja aceita.
+
+```json
+{
+  "title": "Harry Potter e a Pedra Filosofal",
+  "author": "J. K. Rowling",
+  "userId": 3
+}
+```
+
+É necessário o envio do token no cabeçalho da requisição, dessa forma:
+
+> Authorization: Bearer {token}
+
+`get /read_books`
+
+Com esse endpoint podemos verificar todos os livros já lidos pelos usuários.
+
+`get /read_books - STATUS 200`
+
+```json
+[
+  {
+    "title": "Harry Potter e a Pedra Filosofal",
+    "author": "J. K. Rowling",
+    "userId": 3,
+    "id": 1
+  }
+]
+```
