@@ -1,18 +1,16 @@
 # BookListAPI
 
-==========================
-
 API que possui uma listagem dos 100 melhores livros clássicos de todos os tempos, e que o usuário pode listar seus livros já lidos.
 
 ## Endpoints
 
-==========================
+---
 
 A aplicação possui um total de 4 endpoints:
 
 ### Cadastro
 
-==========================
+---
 
 `POST /register`
 
@@ -41,7 +39,7 @@ Caso tudo dê certo a resposta será assim:
 
 ### Login
 
-==========================
+---
 
 `POST /login`
 
@@ -70,7 +68,7 @@ Caso tudo dê certo a resposta será assim:
 
 ### Book List
 
-==========================
+---
 
 `GET /book_list`
 
@@ -87,7 +85,7 @@ Endpoint utilizada para acessar a listagem dos 100 melhores livros clássicos.
 
 ### Read Books
 
-==========================
+---
 
 `POST /read_books`
 
